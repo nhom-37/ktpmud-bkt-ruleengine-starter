@@ -64,37 +64,49 @@ Nhóm đã chuẩn bị yêu cầu, kế hoạch kiểm thử và ADR cho Checkp
 
 ### 2.1. Đối chiếu timeline PC-1
 
-| Việc (theo bảng 1.3) | Kế hoạch | Thực tế | Lệch & lý do |
+| Việc | Kế hoạch | Thực tế | Lệch & lý do |
 |---|---|---|---|
+| Phân loại, audit và test | 15/11 | Hoàn thiện và chạy cục bộ 18/11 | Muộn so với dự kiến. |
+| Benchmark và tài liệu | 17/11 | Đã đo và tạo hồ sơ 18/11 | Muộn so với dự kiến. |
+| Demo và Draft PR | 15/11 và 18/11 | Đã có kịch bản demo và hồ sơ Draft PR cục bộ | Chờ xác nhận CI và tạo PR. |
 
-### 2.2. Tiến độ theo acceptance criteria (cập nhật toàn bộ bảng 1.1)
+### 2.2. Tiến độ theo acceptance criteria
 
 | Mã | Trạng thái | Bằng chứng | Ghi chú |
 |---|---|---|---|
+| A-01 | Xong | [Classifier](../rule_engine/classifier.py) | Hàm trả kết quả theo hợp đồng V1. |
+| A-02 | Xong | [Classifier](../rule_engine/classifier.py) | Đánh giá từ dữ liệu, không dựa trên mã ca. |
+| A-03 | Xong | [Bộ test](../tests/test_classifier.py) | Đã chạy ca cho cả ba mức. |
+| A-04 | Xong | [Bộ test](../tests/test_classifier.py) | Đã chạy ca thiếu và sai kiểu. |
+| A-05 | Xong | [Bộ test](../tests/test_classifier.py) | Kiểm tra mã trong lý do. |
+| A-06 | Xong | [Bộ test](../tests/test_classifier.py) | Kiểm tra bốn khóa audit và UUID phiên. |
+| A-07 | Xong | [Bộ test](../tests/test_classifier.py) | Có ca thường, ngưỡng, sai kiểu và thiếu dữ liệu. |
+| A-08 | Đang | [Báo cáo test](../TEST_REPORT.md) | Unittest đạt. Cần xác nhận pytest trên bản checkout sạch. |
+| A-09 | Đang | [Workflow](../.github/workflows/test.yml) | Cần kích hoạt và xác nhận CI trên GitHub. |
+| A-10 | Xong | [Báo cáo test](../TEST_REPORT.md) | Đã đo 3.000 lượt sau warm-up. |
+| A-11 | Xong | [README](../README.md) | Đã thêm nhãn giáo dục và dữ liệu giả lập. |
 
-### 2.3. Sẵn sàng nộp bài (đề thi Mục 6)
+### 2.3. Sẵn sàng nộp bài
 
 | Deliverable | Có / Chưa | Đường dẫn |
 |---|---|---|
-| README.md (cài đặt / chạy / test) | | |
-| REQUIREMENTS.md | | |
-| DECISIONS.md / ADR | | |
-| Test tự động + CI xanh | | |
-| TEST_REPORT.md | | |
-| SECURITY_PRIVACY_CHECKLIST.md | | |
-| AI_USE.md | | |
-| CONTRIBUTIONS.md | | |
-| Slide / demo script ≤ 7 phút | | |
-| Draft PR vào `ktpmud-project`, check `validate` xanh | | |
+| README, yêu cầu và ADR | Có | [README](../README.md) · [Yêu cầu](../REQUIREMENTS.md) · [ADR](../DECISIONS.md) |
+| Test tự động + CI xanh | Chưa | [Bộ test](../tests/test_classifier.py) · [Báo cáo](../TEST_REPORT.md) |
+| Báo cáo test và checklist bảo mật | Có | [Test](../TEST_REPORT.md) · [Checklist](../SECURITY_PRIVACY_CHECKLIST.md) |
+| AI-use và phân công | Có bản đang làm | [AI](../AI_USE.md) · [Đóng góp](../CONTRIBUTIONS.md) |
+| Kịch bản demo | Có | [Demo](../DEMO_SCRIPT.md) |
+| Draft PR có check validate xanh | Chưa | [Yêu cầu PC-2][draft-erratum] |
 
-### 2.4. Việc còn lại đến Freeze (23:59 19/11)
+### 2.4. Việc còn lại đến Freeze
 
 | Việc | Vai trò phụ trách | Hạn |
 |---|---|---|
+| Push code, xác nhận test CI và kiểm tra hồ sơ trên Draft PR | Kiểm thử/CI, Tài liệu/Nộp bài | Trước Freeze |
+| Rà soát đóng góp, chạy thử demo và chốt SHA/tag | Cả nhóm | 23:59 19/11 |
 
 ### 2.5. Rủi ro / câu hỏi cho GV
 
-- Cập nhật tại PC-2.
+- Cần xác nhận CI và `validate` trên GitHub. Báo cáo test hiện ghi kết quả cục bộ.
 
 ## Kết quả cuối — Freeze 19/11/2026
 

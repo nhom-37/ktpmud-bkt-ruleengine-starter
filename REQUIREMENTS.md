@@ -44,7 +44,7 @@ Các ngưỡng và điều kiện phân loại lấy từ bảng V1. Nhóm quy �
 - **Thiếu tuổi.** Khi thiếu trường `tuoi`, trả `THEO_DOI` và `rule_id = null`, kể cả khi các cờ đủ khớp một kịch bản phản vệ. Lý do nêu thiếu tuổi.
 - **Nhiều kịch bản cùng khớp.** Khi R02 và R03 cùng khớp và ca cho kết quả `PHAN_VE`, chọn `R02-PV` theo thứ tự trong bảng V1. Nếu ca đạt điều kiện sốc, mã trả về là `R-SOC`.
 - **Thiếu huyết áp.** Khóa vắng mặt và `null` đều được xem là thiếu giá trị. Với tuổi hợp lệ và kịch bản phản vệ đã xác định, giữ `PHAN_VE` nếu dữ liệu còn lại chưa xác lập được sốc. Chỉ tính mức giảm phần trăm khi có HATT hiện tại và HATT nền có giá trị lớn hơn 0. Điều kiện theo HATT hiện tại vẫn được xét độc lập khi có giá trị. Khi thiếu dữ liệu để đánh giá sốc, lý do nêu giới hạn đó và dẫn về quy tắc phản vệ đã khớp.
-- **Thiếu cờ.** Chỉ xác nhận kịch bản khi các giá trị có mặt đủ chứng minh điều kiện của kịch bản đó. Khi thiếu cờ cần thiết và chưa xác định được kịch bản nào, trả `THEO_DOI` và `rule_id = null`. Cờ vắng mặt được xem là chưa biết.
+- **Thiếu cờ.** Cờ vắng mặt hoặc `null` được xem là chưa biết. Chỉ xác nhận kịch bản khi các giá trị có mặt đủ chứng minh điều kiện của kịch bản đó. Khi chưa xác định được kịch bản nào, trả `THEO_DOI` và `rule_id = null`. Tuổi vắng mặt hoặc `null` đều cho kết quả thiếu tuổi. [Làm rõ của giảng viên](https://github.com/fossbk-spec/ktpmud-project/issues/15)
 
 ## Hồ sơ Checkpoint 1
 

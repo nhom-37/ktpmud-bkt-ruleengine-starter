@@ -21,4 +21,8 @@ Một hàm xử lý chung có thể thuận tiện khi mới viết vài ca. Khi
 
 ## Cách xác minh
 
+Phần triển khai 18/11 dùng một bảng Python gồm mã và hàm điều kiện cho R01, R02, R03. Duyệt theo thứ tự do giảng viên quy định. Bảng giúp tách từng điều kiện khi đọc và kiểm thử. Nếu dùng YAML, nhóm phải bổ sung cơ chế đọc và xác thực cấu hình. [Làm rõ của giảng viên](https://github.com/fossbk-spec/ktpmud-project/issues/15)
+
+Cờ vắng mặt hoặc `null` được xem là chưa biết. Nếu dữ liệu còn lại đủ khớp một quy tắc, sử dụng kết quả đó. Nếu chưa có quy tắc nào khớp, trả `THEO_DOI`. Mỗi tiến trình dùng một UUID giả lập, giữ ổn định giữa các lần gọi. Audit được ghi dưới dạng JSON từng dòng ra stderr.
+
 Dùng các ca N và B để kiểm tra quy tắc cùng ngưỡng, các ca V và C để kiểm tra chính sách đầu vào và mã giải thích. Kiểm tra mỗi lần gọi tạo đúng một bản ghi audit với UUID giả lập và đúng bốn trường đã quy định. [Kế hoạch kiểm thử](TEST_PLAN.md)
